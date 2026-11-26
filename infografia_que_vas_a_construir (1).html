@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Qué vas a construir | KIT3D</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,600;0,700;1,700&family=Inter:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{--red:#E60000;--bk:#000000;--panel:#0A0A0A;--panel2:#111111;--line:#333333;--wh:#FFFFFF;--smoke:#E5E5E5;
+--bev:polygon(0 18px,18px 0,calc(100% - 18px) 0,100% 18px,100% calc(100% - 18px),calc(100% - 18px) 100%,18px 100%,0 calc(100% - 18px));}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#050505}
+body{display:flex;justify-content:center;padding:24px 12px;font-family:'Inter',system-ui,sans-serif;color:var(--wh)}
+.canvas{width:1080px;max-width:100%;min-height:1920px;background:var(--bk);padding:56px 48px 40px;
+background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:40px 40px;
+border:2px solid var(--red);display:flex;flex-direction:column;gap:40px}
+.slashes{font-family:'Chakra Petch',sans-serif;font-weight:700;color:var(--red);letter-spacing:.12em;font-size:22px}
+header .kicker{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+header .kicker i{flex:1;height:2px;background:linear-gradient(90deg,var(--red),transparent)}
+h1{font-family:'Chakra Petch',sans-serif;font-weight:700;text-transform:uppercase;font-size:84px;line-height:1;letter-spacing:.01em}
+h1 .r{color:var(--red)}
+.sub{margin-top:22px;font-size:24px;font-weight:600;color:var(--smoke);line-height:1.45;border-left:6px solid var(--red);padding-left:18px}
+.sec-head{display:flex;align-items:stretch;margin-bottom:22px}
+.sec-head .n{background:var(--red);font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:34px;padding:10px 22px;display:flex;align-items:center;clip-path:polygon(0 0,100% 0,calc(100% - 14px) 100%,0 100%)}
+.sec-head .t{flex:1;margin-left:-6px;background:var(--bk);border:2px solid var(--wh);border-left:0;padding:10px 26px 10px 28px;font-family:'Chakra Petch',sans-serif;font-weight:700;text-transform:uppercase;font-size:28px;letter-spacing:.03em;display:flex;align-items:center}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--panel);border:2px solid var(--red);clip-path:var(--bev);display:flex;flex-direction:column}
+.strip{background:var(--red);font-family:'Chakra Petch',sans-serif;font-weight:700;text-transform:uppercase;font-size:19px;letter-spacing:.03em;text-align:center;padding:14px 10px;min-height:62px;display:flex;align-items:center;justify-content:center;line-height:1.15;margin-top:18px}
+.mb{padding:18px 20px 24px}
+.tag{display:inline-block;border:2px solid var(--wh);font-family:'Chakra Petch',sans-serif;font-weight:700;text-transform:uppercase;font-size:14px;letter-spacing:.06em;padding:3px 10px;margin-bottom:14px}
+.mb h4{font-family:'Chakra Petch',sans-serif;text-transform:uppercase;color:var(--red);font-size:15px;letter-spacing:.08em;margin-bottom:6px}
+.mb p{font-size:18px;line-height:1.45;color:var(--smoke);font-weight:500;margin-bottom:14px}
+.mb p:last-child{margin-bottom:0}
+.mb em{color:var(--wh);font-style:normal;font-weight:600;border-bottom:3px solid var(--red)}
+.mem{display:flex;align-items:center;gap:22px;background:var(--panel2);border:2px solid var(--line);clip-path:var(--bev);padding:24px 30px}
+.mem .tic{width:84px;height:84px;flex:none;border:2px solid var(--wh);background:var(--bk);display:flex;align-items:center;justify-content:center}
+.mem .tic svg{width:46px;height:46px}
+.mem p{font-size:22px;line-height:1.45;font-weight:600}
+code{font-family:'Chakra Petch',ui-monospace,monospace;font-weight:700;background:var(--bk);border:2px solid var(--red);padding:2px 9px;color:var(--wh);font-size:.9em;white-space:nowrap}
+.tools{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.tool{display:flex;align-items:center;gap:16px;background:var(--panel);border:2px solid var(--red);clip-path:var(--bev);padding:20px 22px}
+.tool .tic{width:68px;height:68px;flex:none;border:2px solid var(--wh);background:var(--bk);display:flex;align-items:center;justify-content:center}
+.tool .tic svg{width:38px;height:38px}
+.tool b{display:block;font-family:'Chakra Petch',sans-serif;text-transform:uppercase;font-size:19px;letter-spacing:.03em;margin-bottom:8px}
+.tool code{display:inline-block;font-size:15px;white-space:normal;overflow-wrap:anywhere}
+.diagwrap{background:var(--panel2);border:2px solid var(--line);clip-path:var(--bev);padding:26px 22px}
+.diag{display:block;width:100%;height:auto}
+.lp{padding:20px 22px 26px;font-size:19px;line-height:1.5;color:var(--smoke);font-weight:500}
+footer{margin-top:auto;border-top:2px solid var(--red);padding-top:26px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+footer .phrase{font-family:'Chakra Petch',sans-serif;font-style:italic;font-weight:700;text-transform:uppercase;font-size:32px;line-height:1.14;max-width:660px}
+footer .phrase em{color:var(--red);font-style:italic}
+footer .logo{width:190px;flex:none}
+footer .logo svg{display:block;width:100%;height:auto}
+@media (max-width:900px){.canvas{padding:32px 18px}h1{font-size:46px}.grid3{grid-template-columns:1fr}.tools{grid-template-columns:1fr}.tool{grid-column:auto!important}.mem{flex-direction:column;align-items:flex-start}footer{flex-direction:column;align-items:flex-start}footer .phrase{font-size:24px}}
+
+.dl{position:fixed;top:16px;right:16px;z-index:50;display:flex;gap:10px;font-family:'Chakra Petch',sans-serif}
+.dl button{cursor:pointer;font:700 15px 'Chakra Petch',sans-serif;letter-spacing:.05em;text-transform:uppercase;color:#FFFFFF;background:#000000;border:2px solid #FFFFFF;padding:12px 18px;clip-path:polygon(0 10px,10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%);transition:background .15s}
+.dl button.main{background:#E60000;border-color:#E60000}
+.dl button:hover{background:#E60000;border-color:#E60000}
+.dl button.main:hover{background:#FF1E27}
+.dl button:disabled{opacity:.6;cursor:wait}
+@media (max-width:900px){.dl{top:auto;bottom:12px;right:12px;left:12px;justify-content:center}}
+@media print{.dl{display:none}}
+.repo{display:flex;flex-direction:column;gap:6px;text-decoration:none;color:#FFFFFF;border:2px solid #E60000;background:#0A0A0A;padding:14px 20px;clip-path:polygon(0 12px,12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%);font-family:'Chakra Petch',sans-serif;font-weight:700;flex:none}
+.repo small{color:#E60000;text-transform:uppercase;letter-spacing:.1em;font-size:14px}
+.repo span{font-size:19px;letter-spacing:.02em}
+.repo:hover{background:#E60000}.repo:hover small{color:#FFFFFF}
+</style>
+</head>
+<body>
+<div class="dl" role="toolbar" aria-label="Descargar infografía">
+  <button class="main" id="dl-png" type="button" title="Imagen PNG en alta resolución (recomendado)">⬇ PNG (recomendado)</button>
+  <button id="dl-pdf" type="button" title="PDF de una sola página">⬇ PDF</button>
+</div>
+<main class="canvas">
+
+<header>
+  <div class="kicker"><span class="slashes">////</span><i></i></div>
+  <h1>Qué vas a <span class="r">construir</span></h1>
+  <p class="sub">Bot de Telegram que combina tres modelos de IA (Gemini, Groq, NVIDIA), mantiene memoria por usuario y ofrece herramientas nativas (calculadora, notas y 10 extras).</p>
+</header>
+
+<section>
+  <div class="sec-head"><div class="n">01.</div><div class="t">Modelos y cuándo se usan</div></div>
+  <div class="grid3"><div class="card"><div class="strip">Gemini (Google)</div><div class="mb"><span class="tag">Por defecto</span><h4>Cuándo lo usa el bot</h4><p>Por defecto, para la mayoría de los mensajes</p><h4>Por qué</h4><p>Equilibrado: rápido y capaz</p></div></div><div class="card"><div class="strip">Groq (chip especializado)</div><div class="mb"><span class="tag">rápido</span><h4>Cuándo lo usa el bot</h4><p>Cuando la petición contiene la palabra <em>rápido</em></p><h4>Por qué</h4><p>El más veloz para respuestas cortas</p></div></div><div class="card"><div class="strip">NVIDIA (Nemotron)</div><div class="mb"><span class="tag">potente</span><h4>Cuándo lo usa el bot</h4><p>Cuando la petición contiene la palabra <em>potente</em></p><h4>Por qué</h4><p>Modelo grande, mejor razonamiento, tarda más</p></div></div></div>
+</section>
+
+<section>
+  <div class="sec-head"><div class="n">02.</div><div class="t">Memoria por usuario</div></div>
+  <div class="mem"><div class="tic"><svg viewBox="0 0 48 48" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="24" cy="12" rx="15" ry="6"/><path d="M9 12v24c0 3 7 6 15 6s15-3 15-6V12"/><path d="M9 24c0 3 7 6 15 6s15-3 15-6"/></svg></div><p>Datos guardados en Redis (<code>user:{id}</code>) y reutilizados en cada mensaje.</p></div>
+</section>
+
+<section>
+  <div class="sec-head"><div class="n">03.</div><div class="t">Herramientas integradas</div></div>
+  <div class="tools"><div class="tool" style="grid-column:span 2"><div class="tic"><svg viewBox="0 0 48 48" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="5" width="30" height="38" rx="3"/><rect x="15" y="11" width="18" height="8"/><path d="M16 27h2M24 27h2M32 27h0M16 35h2M24 35h2M32 35h0"/></svg></div><div><b>Calculadora</b><code>/calc &lt;expresión&gt;</code></div></div><div class="tool" style="grid-column:span 2"><div class="tic"><svg viewBox="0 0 48 48" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M10 6h22l8 8v28H10z"/><path d="M32 6v8h8M17 22h16M17 29h16M17 36h10"/></svg></div><div><b>Notas</b><code>/note &lt;texto&gt;</code></div></div><div class="tool" style="grid-column:span 2"><div class="tic"><svg viewBox="0 0 48 48" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="18"/><path d="M6 24h36M24 6c-8 9-8 27 0 36M24 6c8 9 8 27 0 36"/></svg></div><div><b>Buscar web</b><code>/extra-search &lt;query&gt;</code></div></div><div class="tool" style="grid-column:span 3"><div class="tic"><svg viewBox="0 0 48 48" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="26" r="16"/><path d="M24 16v10l7 5M18 5h12"/></svg></div><div><b>Recordatorio</b><code>/extra-remind &lt;tiempo&gt; &lt;tarea&gt;</code></div></div><div class="tool" style="grid-column:span 3"><div class="tic"><svg viewBox="0 0 48 48" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="14" width="32" height="24" rx="4"/><circle cx="18" cy="26" r="3"/><circle cx="30" cy="26" r="3"/><path d="M24 14V6M4 26v4M44 26v4M18 33h12"/></svg></div><div><b>Otros 6 extras</b><code>/extra-…</code></div></div></div>
+</section>
+
+<section>
+  <div class="sec-head"><div class="n">04.</div><div class="t">Arquitectura</div></div>
+  <div class="diagwrap"><svg class="diag" viewBox="0 0 984 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Arquitectura del bot">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#E60000"/></marker></defs>
+<g fill="none" stroke="#E60000" stroke-width="3" marker-end="url(#ar)">
+<path d="M210 65H285"/><path d="M495 48H570"/><path d="M390 100V190"/>
+<path d="M495 225H520V82H570"/>
+<path d="M605 145V190"/><path d="M750 145V190"/><path d="M900 145V190"/>
+<path d="M792 305V350"/><path d="M685 385H105V100"/>
+</g>
+<g fill="none" stroke="#E60000" stroke-width="3"><path d="M677 100V145"/><path d="M605 145H900"/><path d="M605 260V305H900V260"/><path d="M750 260V305"/></g>
+<g font-family="Chakra Petch,sans-serif" font-weight="700" font-size="17" text-anchor="middle" fill="#FFFFFF" letter-spacing=".3">
+<g fill="#0A0A0A" stroke="#FFFFFF" stroke-width="2">
+<rect x="0" y="30" width="210" height="70"/><rect x="285" y="30" width="210" height="70"/><rect x="285" y="190" width="210" height="70"/>
+<rect x="540" y="190" width="130" height="70"/><rect x="685" y="190" width="130" height="70"/><rect x="830" y="190" width="140" height="70"/><rect x="685" y="350" width="214" height="70"/></g>
+<rect x="570" y="30" width="214" height="70" fill="#E60000" stroke="#FFFFFF" stroke-width="2"/>
+<text x="105" y="71">Webhook Telegram</text><text x="390" y="71">Dispatcher</text><text x="677" y="71">Selector de modelo</text>
+<text x="390" y="224">Cache Redis</text><text x="390" y="246">(memoria)</text>
+<text x="605" y="231">API Gemini</text><text x="750" y="231">API Groq</text><text x="900" y="231">API NVIDIA</text>
+<text x="792" y="391">Respuesta al usuario</text></g></svg></div>
+</section>
+
+<section>
+  <div class="sec-head"><div class="n">05.</div><div class="t">AI Leverage</div></div>
+  <div class="grid3"><div class="card"><div class="strip">Automatizamos</div><p class="lp">build + deploy Docker, generación automática de docs.</p></div><div class="card"><div class="strip">Delegamos a IA</div><p class="lp">redacción de prompts de ejemplo, creación de íconos de los extras.</p></div><div class="card"><div class="strip">Eliminamos</div><p class="lp">pruebas manuales de selección de modelo y gestión de versiones.</p></div></div>
+</section>
+
+<footer>
+  <div>
+    <div class="slashes" style="margin-bottom:10px">////</div>
+    <p class="phrase">Tres modelos. <em>Memoria por usuario.</em> Herramientas nativas.</p>
+  </div>
+  <a class="repo" href="https://github.com/Fedgutcor/clase-agentes#qu%C3%A9-vas-a-construir" target="_blank" rel="noopener"><small>Repositorio en GitHub ➔</small><span>github.com/Fedgutcor/clase-agentes</span></a>
+</footer>
+
+</main>
+<script src="https://cdn.jsdelivr.net/npm/html-to-image@1.11.11/dist/html-to-image.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+(function(){
+  var FILE='que-vas-a-construir-kit3d';
+  var node=document.querySelector('.canvas');
+  async function snap(){
+    if(!window.htmlToImage){throw new Error('No se pudo cargar la librería de exportación. Revisa tu conexión.');}
+    if(document.fonts&&document.fonts.ready){await document.fonts.ready;}
+    var s=node.style.cssText;
+    node.style.width='1080px';node.style.maxWidth='none';
+    try{
+      return await htmlToImage.toPng(node,{pixelRatio:2,cacheBust:true,backgroundColor:'#000000'});
+    }finally{node.style.cssText=s;}
+  }
+  function save(url,name){var a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();}
+  function wrap(btn,fn){
+    btn.addEventListener('click',async function(){
+      var t=btn.textContent;btn.disabled=true;btn.textContent='Generando…';
+      try{await fn();}catch(e){alert(e.message||'Error al generar el archivo.');}
+      btn.disabled=false;btn.textContent=t;
+    });
+  }
+  wrap(document.getElementById('dl-png'),async function(){save(await snap(),FILE+'.png');});
+  wrap(document.getElementById('dl-pdf'),async function(){
+    if(!(window.jspdf&&window.jspdf.jsPDF)){throw new Error('No se pudo cargar la librería de PDF. Revisa tu conexión.');}
+    var url=await snap();
+    var img=new Image();
+    await new Promise(function(ok,ko){img.onload=ok;img.onerror=ko;img.src=url;});
+    var w=img.naturalWidth/2,h=img.naturalHeight/2;
+    var pdf=new window.jspdf.jsPDF({orientation:w>h?'l':'p',unit:'px',format:[w,h],hotfixes:['px_scaling']});
+    pdf.addImage(url,'PNG',0,0,w,h);
+    pdf.save(FILE+'.pdf');
+  });
+})();
+</script>
+</body>
+</html>
